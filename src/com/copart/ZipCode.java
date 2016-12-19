@@ -33,13 +33,13 @@ public class ZipCode {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		getZipCode(zipCode);
+		System.out.println(getZipCode(zipCode));
 	}
 	
 	
 	public static String getZipCode(String zipCode)
 	{
-		
+		String output="";
 		 try {
 			 	String clientKey="SH8Be5Im18StbtqknXgm9a9aoJZsukum2CXhHGDJOvd0ZDknBAJKLSV9CVC6g6si";
 			 	
@@ -67,8 +67,8 @@ public class ZipCode {
 				try {
 					parser.parse(jsonData);
 					JSONObject jsonObject = new JSONObject(jsonData);
-					String output=jsonObject.getString("city")+","+jsonObject.getString("state");
-					System.out.println(output);
+					output=jsonObject.getString("city")+","+jsonObject.getString("state");
+					
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -87,7 +87,7 @@ public class ZipCode {
 			  }
 		
 		
-		return "";
+		return output;
 	}
 
 }
